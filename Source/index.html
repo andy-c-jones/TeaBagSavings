@@ -1,0 +1,30 @@
+<html>
+<head>Tea Bags</head>
+<body>
+	<form  onsubmit="return false" oninput="result.value = 'Total Saving From Extra Teabag Use: ' + calculateSaving(MinsBrewing1Bag.valueAsNumber,
+																													MinsBrewing2Bag.valueAsNumber,
+																													Salary.valueAsNumber,
+																													WorkingDaysInTheYear.valueAsNumber,
+																													TeaBagPrice.valueAsNumber)">
+		Brewing Time with a single teabag (minutes)</br>
+		<input name="MinsBrewing1Bag" type="number" placeholder="Mins Brewing (1 Bags)"></br>
+		Brewing Time with two teabags (minutes)</br>
+		<input name="MinsBrewing2Bag" type="number" placeholder="Mins Brewing (2 Bags)"></br>
+		Salary</br>
+		<input name="Salary" type="number" placeholder="Salary"></br>
+		Working Days in the Year</br>
+		<input name="WorkingDaysInTheYear" type="number" placeholder="Working Days"></br>
+		Teabag Unit Price</br>
+		<input name="TeaBagPrice" type="number" placeholder="Price of a single tea bag"></br>
+		</br>
+		<output name="result">Enter values in fields above</output>
+	</form>
+</body>
+<script>
+	function calculateSaving(minsBrew1, minsBrew2, salary, workDays, teabagPrice) {
+		var hourlyWage = (salary / workDays) / 8;
+		var minutelyWage = hourlyWage / 60;
+		return ((minsBrew1 - minsBrew2) * minutelyWage) - teabagPrice;
+	}
+</script>
+</html>
